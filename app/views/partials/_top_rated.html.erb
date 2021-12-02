@@ -3,4 +3,22 @@
   <br>
   <br>
   <%= button_to 'Discover Page', user_discover_path(@user), method: :get %>
+  <br>
+  <br>
+  <table style="margin:auto;">
+    <tr>
+      <td><b>Title</b></td>
+      <td><b>Rating</b></td>
+    </tr>
+    <% @movies.each do |movie| %>
+    <tr>
+      <td>
+        <%= link_to movie.title, user_movie_path(@user, movie.id) %>
+      </td>
+      <td>
+        <%= movie.vote_average %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 </div>

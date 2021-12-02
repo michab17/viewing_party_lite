@@ -1,0 +1,14 @@
+<div style="text-align:center;">
+  <table>
+    <% @movies.each do |movie| %>
+    <tr>
+      <td>
+        <%= movie[:title] %>
+      </td>
+      <td>
+        <%= movie[:vote_average] %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
