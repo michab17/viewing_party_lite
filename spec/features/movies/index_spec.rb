@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Discover' do
+RSpec.describe 'Discover', :vcr do
   let(:user) { User.create!(name: 'Tom', email: 'user@email.com') }
 
   before do
