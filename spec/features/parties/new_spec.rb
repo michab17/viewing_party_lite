@@ -25,12 +25,12 @@ RSpec.describe 'new party page', :vcr do
     describe 'when given valid information' do
       it 'creates a new viewing party' do
         fill_in :duration, with: 160
-        fill_in :day, with: 3.days.from_now
+        fill_in :day, with: "01/22/2022"
         fill_in :time, with: "0715p"
         check 'John'
 
         click_button 'Create Party'
-binding.pry
+
         party = Party.find_by(movie_id: 155, host_id: user.id)
 
         expect(current_path).to eq(user_path(user))
@@ -40,16 +40,13 @@ binding.pry
 
     describe 'when given invalid information' do
       describe 'fails to create a party' do
-        xit 'doesn\'t create a new viewing party' do
+        it 'doesn\'t create a new viewing party' do
           fill_in :duration, with: 140
           fill_in :day, with: 3.days.from_now
           fill_in :time, with: "0715p"
           check 'John'
           click_button 'Create Party'
-
-          party = Party.find_by(movie_id: 155, host_id: user.id)
-
-          expect(party).to_not be_a Party
+          
           expect(current_path).to eq(new_user_movie_party_path(user, 155))
           expect(page).to have_content('Error')
         end
