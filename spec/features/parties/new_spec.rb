@@ -22,7 +22,7 @@ RSpec.describe 'new party page', :vcr do
   end
 
   describe 'form' do
-    describe 'when given valid information' do
+    describe 'when given valid information', :vcr do
       it 'creates a new viewing party' do
         fill_in :duration, with: 160
         fill_in :day, with: "01/22/2022"

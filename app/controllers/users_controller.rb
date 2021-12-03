@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @hosting_parties = UserParty.where(user_id: @user.id)
+    @parties = []
+    @hosting_parties.each do |user_party|
+      @parties << Party.find(user_party.party_id)
+    end
   end
   
   def new

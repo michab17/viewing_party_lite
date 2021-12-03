@@ -9,3 +9,10 @@
   <hr style="width:75%; height:3px; margin:auto;">
   <h3>Viewing Parties</h3>
 </div>
+
+<% @parties.each do |party| %>
+  <%= MovieFacade.find_movie(party.movie_id).title %><br>
+  <%= party.date %><br>
+  <%= party.time %><br>
+  <p>Hosting</p>
+<% end %>
