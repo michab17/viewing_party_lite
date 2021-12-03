@@ -20,4 +20,16 @@ class MovieService
 
     first20[:results] + last20[:results]
   end
+
+  def self.find_by_id(id)
+    movie = get_data("https://api.themoviedb.org/3/movie/#{id}")
+  end
+
+  def self.get_cast(movie_id)
+    cast = get_data("https://api.themoviedb.org/3/movie/#{movie_id}/credits")
+  end
+
+  def self.get_reviews(movie_id)
+    review = get_data("https://api.themoviedb.org/3/movie/#{movie_id}/reviews")
+  end
 end
