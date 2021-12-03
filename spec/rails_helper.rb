@@ -95,3 +95,18 @@ def movie_data
  :vote_average=>8.7,
  :vote_count=>3259}
 end
+
+def actor_data
+  {:adult=>false,
+    :gender=>2,
+    :id=>3894,
+    :known_for_department=>"Acting",
+    :name=>"Christian Bale",
+    :original_name=>"Christian Bale",
+    :popularity=>13.336,
+    :profile_path=>"/qCpZn2e3dimwbryLnqxZuI88PTi.jpg",
+    :cast_id=>35,
+    :character=>"Bruce Wayne / Batman",
+    :credit_id=>"52fe4220c3a36847f8005d17",
+    :order=>0}
+end
