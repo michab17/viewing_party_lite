@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get '/discover', to: 'movies#index'
     get '/movies', to: 'movies#search'
     resources :movies, only: [:show] do
-      resources :party, only: [:new, :create]
+      resources :parties, only: [:new, :create]
     end
   end
 end
