@@ -78,7 +78,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
 end
 
-def movie_data
+def basic_movie_data
   {:adult=>false,
  :backdrop_path=>"/5hNcsnMkwU2LknLoru73c76el3z.jpg",
  :genre_ids=>[35, 18, 10749],
@@ -94,4 +94,142 @@ def movie_data
  :video=>false,
  :vote_average=>8.7,
  :vote_count=>3259}
+end
+
+def actor_data
+  {:adult=>false,
+    :gender=>2,
+    :id=>3894,
+    :known_for_department=>"Acting",
+    :name=>"Christian Bale",
+    :original_name=>"Christian Bale",
+    :popularity=>13.336,
+    :profile_path=>"/qCpZn2e3dimwbryLnqxZuI88PTi.jpg",
+    :cast_id=>35,
+    :character=>"Bruce Wayne / Batman",
+    :credit_id=>"52fe4220c3a36847f8005d17",
+    :order=>0}
+end
+
+def movie_data
+  {
+    "adult": false,
+    "backdrop_path": "/hkBaDkMWbLaf8B1lsWsKX7Ew3Xq.jpg",
+    "belongs_to_collection": {
+        "id": 263,
+        "name": "The Dark Knight Collection",
+        "poster_path": "/l4T8JVwircGZlZuSl29U3TS9mpl.jpg",
+        "backdrop_path": "/xfKot7lqaiW4XpL5TtDlVBA9ei9.jpg"
+    },
+    "budget": 185000000,
+    "genres": [
+        {
+            "id": 18,
+            "name": "Drama"
+        },
+        {
+            "id": 28,
+            "name": "Action"
+        },
+        {
+            "id": 80,
+            "name": "Crime"
+        },
+        {
+            "id": 53,
+            "name": "Thriller"
+        }
+    ],
+    "homepage": "https://www.warnerbros.com/movies/dark-knight/",
+    "id": 155,
+    "imdb_id": "tt0468569",
+    "original_language": "en",
+    "original_title": "The Dark Knight",
+    "overview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
+    "popularity": 59.634,
+    "poster_path": "/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    "production_companies": [
+        {
+            "id": 429,
+            "logo_path": "/2Tc1P3Ac8M479naPp1kYT3izLS5.png",
+            "name": "DC Comics",
+            "origin_country": "US"
+        },
+        {
+            "id": 923,
+            "logo_path": "/5UQsZrfbfG2dYJbx8DxfoTr2Bvu.png",
+            "name": "Legendary Pictures",
+            "origin_country": "US"
+        },
+        {
+            "id": 9996,
+            "logo_path": "/3tvBqYsBhxWeHlu62SIJ1el93O7.png",
+            "name": "Syncopy",
+            "origin_country": "GB"
+        },
+        {
+            "id": 118865,
+            "name": "Isobel Griffiths",
+            "origin_country": "GB"
+        },
+        {
+            "id": 9993,
+            "logo_path": "/2Tc1P3Ac8M479naPp1kYT3izLS5.png",
+            "name": "DC Entertainment",
+            "origin_country": "US"
+        },
+        {
+            "id": 174,
+            "logo_path": "/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png",
+            "name": "Warner Bros. Pictures",
+            "origin_country": "US"
+        }
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "GB",
+            "name": "United Kingdom"
+        },
+        {
+            "iso_3166_1": "US",
+            "name": "United States of America"
+        }
+    ],
+    "release_date": "2008-07-14",
+    "revenue": 1004558444,
+    "runtime": 152,
+    "spoken_languages": [
+        {
+            "english_name": "English",
+            "iso_639_1": "en",
+            "name": "English"
+        },
+        {
+            "english_name": "Mandarin",
+            "iso_639_1": "zh",
+            "name": "普通话"
+        }
+    ],
+    "status": "Released",
+    "tagline": "Why So Serious?",
+    "title": "The Dark Knight",
+    "video": false,
+    "vote_average": 8.5,
+    "vote_count": 26291
+  }
+end
+
+def review_data
+  {
+    "author": "tricksy",
+    "author_details": {
+        "name": "",
+        "username": "tricksy",
+    },
+    "content": "Excellent movie. Best of the trilogy. Lovely music. Nolan is a genius. So is Heath Ledger.",
+    "created_at": "2015-06-09T07:21:30.464Z",
+    "id": "557693fac3a368569a003fab",
+    "updated_at": "2021-06-23T15:57:35.053Z",
+    "url": "https://www.themoviedb.org/review/557693fac3a368569a003fab"
+}
 end
