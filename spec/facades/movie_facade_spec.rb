@@ -44,4 +44,12 @@ RSpec.describe 'movie facade' do
       expect(first_review.author).to eq('tricksy')
     end
   end
+
+  it 'gets a count of all the reviews' do
+    VCR.use_cassette('gets a count of all the reviews') do
+      count = MovieFacade.review_count(155)
+
+      expect(count).to eq(7)
+    end
+  end
 end
