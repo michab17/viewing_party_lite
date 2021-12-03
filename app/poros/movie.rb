@@ -4,7 +4,8 @@ class Movie
               :vote_average,
               :runtime,
               :genres,
-              :genre_string
+              :genre_string,
+              :summary
 
   def initialize(data)
     @id           = data[:id]
@@ -13,6 +14,7 @@ class Movie
     @runtime      = data[:runtime]
     @genres       = data[:genres]
     @genre_string = genre_string
+    @summary      = data[:overview]
   end
 
   def genre_string
@@ -20,6 +22,6 @@ class Movie
     @genres.each do |genre|
       genres += "#{genre[:name]}, "
     end
-    genres[0..-2]
+    genres[0..-3]
   end
 end
