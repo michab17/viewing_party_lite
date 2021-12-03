@@ -32,5 +32,10 @@ class MovieFacade
         Review.new(review_data)
       end
     end
+
+    def review_count(movie_id)
+      reviews = MovieService.get_reviews(movie_id)[:results]
+      count = reviews.count
+    end
   end
 end
