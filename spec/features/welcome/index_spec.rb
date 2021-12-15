@@ -16,8 +16,8 @@ RSpec.describe 'Welcome' do
   end
 
   it 'lists existing users' do
-    user1 = User.create!(name: "Bob", email: "bobsmith@gmail.com")
-    user2 = User.create!(name: "Jane", email: "janedoe@gmail.com")
+    user1 = User.create!(name: "Bob", email: "bobsmith@gmail.com", password: 'password', password_confirmation: 'password')
+    user2 = User.create!(name: "Jane", email: "janedoe@gmail.com", password: 'password', password_confirmation: 'password')
 
     visit root_path
 

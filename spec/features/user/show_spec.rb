@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Dashboard', :vcr do
-  let!(:user) { User.create!(name: 'Tom', email: 'user@email.com') }
+  let!(:user) { User.create!(name: 'Tom', email: 'user@email.com', password: 'password', password_confirmation: 'password') }
 
   before do
 

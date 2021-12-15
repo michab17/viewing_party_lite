@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'new party page', :vcr do
-  let!(:user) { User.create!(name: 'Tom', email: 'user@email.com') }
-  let!(:user2) { User.create!(name: 'John', email: 'user2@email.com') }
-  let!(:user3) { User.create!(name: 'Jane', email: 'user3@email.com') }
+  let!(:user) { User.create!(name: 'Tom', email: 'user@email.com', password: 'password', password_confirmation: 'password') }
+  let!(:user2) { User.create!(name: 'John', email: 'user2@email.com', password: 'password', password_confirmation: 'password') }
+  let!(:user3) { User.create!(name: 'Jane', email: 'user3@email.com', password: 'password', password_confirmation: 'password') }
 
   before do
     visit new_user_movie_party_path(user, 155)
