@@ -2,14 +2,18 @@
   <h1>Welcome to Viewing Party!</h1>
   <br>
   <br>
-  <%= button_to 'Login', login_path, method: :get %>
-  <br>
-  <%= button_to 'Register', register_path, method: :get %>
+  <% if current_user %>
+    <%= button_to 'Logout', logout_path, method: :delete %>
+  <% else %>
+    <%= button_to 'Login', login_path, method: :get %>
+    <br>
+    <%= button_to 'Register', register_path, method: :get %>
+  <% end %>
   <br>
   <br>
   <h3>Existing Users:</h3>
   <% @users.each do |user| %>
-    <%= link_to "#{user.email}'s Dashboard", user_path(user.id) %>
+    <%= link_to "#{user.email}'s Dashboard", dashboard_path %>
     <br>
   <% end %>
 </div>

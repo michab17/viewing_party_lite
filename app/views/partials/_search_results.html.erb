@@ -2,7 +2,7 @@
   <h1>Movie Results for: <%= @result %></h1>
   <br>
   <br>
-  <%= button_to 'Discover Page', user_discover_path(@user), method: :get %>
+  <%= button_to 'Discover Page', discover_path, method: :get %>
   <br>
   <br>
   <table style="margin:auto;">
@@ -13,7 +13,7 @@
     <% @movies.each do |movie| %>
     <tr>
       <td>
-        <%= link_to movie.title, user_movie_path(@user, movie.id) %>
+        <%= link_to movie.title, "/movies/#{movie.id}" %>
       </td>
       <td>
         <%= movie.vote_average %>
