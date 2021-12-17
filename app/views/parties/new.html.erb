@@ -1,23 +1,36 @@
 <div style="text-align:center;">
-  <h1>Create Viewing Party for
-    <%= @movie.title %></h1>
-  <br>
-  <br><%= button_to 'Discover Page', discover_path, method: :get %>
-  <br>
-  <br>
-  <h3>Viewing Party Details</h3>
-  <br>
-  <%= form_with url: "/movies/#{@movie.id}/parties", method: :post, local: true do |f| %>
-    <%= f.label :duration %>
-    <%= f.number_field :duration, value: @movie.runtime %>
-    <%= f.label :day %>
-    <%= f.date_field :day %>
-    <%= f.label :time %>
-    <%= f.time_field :time %>
-    Invite Other Users
+  <div>
+    <h1>Create Viewing Party for <%= @movie.title %></h1>
+  </div>
+  <div>
+    <%= button_to 'Discover Page', discover_path, method: :get %>
+  </div>
+  <div>
+    <h3>Viewing Party Details</h3>
+  </div>
+  
+  <%= form_with model: Party.new, local: true do |f| %>
+    <%= hidden_field_tag :movie_id, @movie.id %>
+    <div>
+      <%= f.label :duration %>
+      <%= f.number_field :duration, value: @movie.runtime %>
+    </div>
+    <div>
+      <%= f.label :day %>
+      <%= f.date_field :day %>
+    </div>
+    <div>
+      <%= f.label :time %>
+      <%= f.time_field :time %>
+    </div>
+    <div>
+      Invite Other Users
+    </div>
     <% @users.each do |user| %>
-      <%= f.check_box "#{user.name}" %>
-      <%= f.label "#{user.name} (#{user.email})" %>
+      <div>
+        <%= f.check_box "#{user.email}" %>
+        <%= user.name %>
+      </div>
     <% end %>
     <%= f.submit 'Create Party' %>
   <% end %>

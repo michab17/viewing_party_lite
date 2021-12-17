@@ -19,7 +19,7 @@ class Movie
 
   def genre_string
     genres = ''
-    @genres.each do |genre|
+    @genres&.each do |genre|
       genres += "#{genre[:name]}, "
     end
     genres[0..-3]

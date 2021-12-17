@@ -11,9 +11,11 @@
   <% end %>
   <br>
   <br>
-  <h3>Existing Users:</h3>
-  <% @users.each do |user| %>
-    <%= link_to "#{user.email}'s Dashboard", dashboard_path %>
-    <br>
+  <% if current_user %>
+    <h3>Existing Users:</h3>
+    <% @users.each do |user| %>
+      <%= user.email %>
+      <br>
+    <% end %>
   <% end %>
 </div>
