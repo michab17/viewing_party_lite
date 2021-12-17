@@ -4,8 +4,11 @@ RSpec.describe 'User Dashboard', :vcr do
   let!(:user) { User.create!(name: 'Tom', email: 'user@email.com', password: 'password', password_confirmation: 'password') }
 
   before do
-
-    visit user_path(user)
+    visit login_path
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_button 'Login'
+    visit dashboard_path
   end
   it 'should have a title on the top of the page' do
     expect(page).to have_content("Tom's Dashboard")
@@ -14,7 +17,7 @@ RSpec.describe 'User Dashboard', :vcr do
   it 'should have a button to discover movies' do
     click_button 'Discover Movies'
 
-    expect(current_path).to eq(user_discover_path(user))
+    expect(current_path).to eq(discover_path)
   end
 
   it 'should have a section to display Viewing Parties' do
@@ -26,7 +29,7 @@ RSpec.describe 'User Dashboard', :vcr do
     party = Party.create!(host_id: user.id, movie_id: movie.id, date: "2021-12-12", time: "7:00:00") 
     userparty = UserParty.create!(user_id: user.id, party_id: party.id) 
   
-    visit user_path(user)
+    visit dashboard_path
 
     expect(page).to have_content('The Dark Knight')
     expect(page).to have_content("2021-12-12")

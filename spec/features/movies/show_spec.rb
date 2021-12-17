@@ -2,9 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Movie Show Page', :vcr do
   let(:user) { User.create!(name: 'Tom', email: 'user@email.com', password: 'password', password_confirmation: 'password') }
+  before :each do
+    visit login_path
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_button 'Login'
 
-  before do
-    visit user_discover_path(user)
+    visit discover_path
 
     click_button "Find Top Rated Movies"
     click_link 'The Dark Knight'
@@ -14,13 +18,13 @@ RSpec.describe 'Movie Show Page', :vcr do
     it 'has a button to get back to the discover page', :vcr do
       click_button 'Discover Page'
 
-      expect(current_path).to eq(user_discover_path(user))
+      expect(current_path).to eq(discover_path)
     end
 
     it 'has a button to create a viewing party', :vcr do
       click_button 'Create Viewing Party for The Dark Knight'
 
-      expect(current_path).to eq(new_user_movie_party_path(user, 155))
+      expect(current_path).to eq("/movies/155/parties/new")
     end
   end
 

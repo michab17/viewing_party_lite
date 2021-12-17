@@ -6,7 +6,11 @@ RSpec.describe 'new party page', :vcr do
   let!(:user3) { User.create!(name: 'Jane', email: 'user3@email.com', password: 'password', password_confirmation: 'password') }
 
   before do
-    visit new_user_movie_party_path(user, 155)
+    visit login_path
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_button 'Login'
+    visit "/movies/155/parties/new"
   end
 
   describe 'layout' do
@@ -17,7 +21,7 @@ RSpec.describe 'new party page', :vcr do
     it 'has a link to discover page' do
       click_button 'Discover Page'
 
-      expect(current_path).to eq(user_discover_path(user))
+      expect(current_path).to eq(discover_path)
     end
   end
 
@@ -33,7 +37,7 @@ RSpec.describe 'new party page', :vcr do
 
         party = Party.find_by(movie_id: 155, host_id: user.id)
 
-        expect(current_path).to eq(user_path(user))
+        expect(current_path).to eq(dashboard_path)
         expect(party).to be_a Party
       end
     end
@@ -47,7 +51,7 @@ RSpec.describe 'new party page', :vcr do
           check 'John'
           click_button 'Create Party'
           
-          expect(current_path).to eq(new_user_movie_party_path(user, 155))
+          expect(current_path).to eq("/movies/155/parties/new")
           expect(page).to have_content('Error')
         end
       end

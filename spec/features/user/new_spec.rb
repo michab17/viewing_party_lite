@@ -12,7 +12,7 @@ RSpec.describe 'new user register page' do
 
     user = User.find_by email: 'email@email.com'
     
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
   end
 
   it 'redirects back to the registration page if passwords dont match' do
@@ -38,7 +38,7 @@ RSpec.describe 'new user register page' do
     
     user = User.find_by email: 'email@email.com'
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
 
     visit register_path
 
